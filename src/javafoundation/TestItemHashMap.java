@@ -21,15 +21,15 @@ public class TestItemHashMap  {
     } 
 
     public static void main(String[] args) { 
-        ItemHashMap itHm = new ItemHashMap(); 
+        ItemHashMap itemHashMapTestInstance = new ItemHashMap(); 
         Scanner input = new Scanner(System.in); 
         displayMenu(); 
 
         System.out.print(" Enter your choice:"); 
-        int choice = input.nextInt(); 
+        int inputChoice = input.nextInt(); 
 
-        while (choice != 4) { 
-            if (choice == 1) { 
+        while (inputChoice != 4) { 
+            if (inputChoice == 1) { 
                  // add addStationaryItem for test 
                 System.out.print(" Enter Id :"); 
                 int id = input.nextInt(); 
@@ -38,10 +38,10 @@ public class TestItemHashMap  {
                 System.out.print(" Enter Size :"); 
                 double size = input.nextDouble(); 
                 StationaryItem sti = new StationaryItem(id, name, size); 
-                itHm.addStationaryItem(sti); 
+                itemHashMapTestInstance.addStationaryItem(sti); 
             }//end first if 
 
-            if (choice == 2) { 
+            if (inputChoice == 2) { 
                 // add addLabItem for test 
                 System.out.print(" Enter Id :"); 
                 int id = input.nextInt(); 
@@ -50,18 +50,18 @@ public class TestItemHashMap  {
                 System.out.print(" Enter type :"); 
                 String type = input.next(); 
                 LabItem labi = new LabItem(id, name, type); 
-                itHm.addLabItem(labi); 
+                itemHashMapTestInstance.addLabItem(labi); 
 
             }//end  second if 
-            if (choice == 3) { 
-                System.out.println(itHm.displayItemsInHashMap()); 
+            if (inputChoice == 3) { 
+                System.out.println(itemHashMapTestInstance.displayItemsInHashMap()); 
             } 
 
             System.out.println(); 
             System.out.print(" Enter your choice:"); 
-            choice = input.nextInt(); 
+            inputChoice = input.nextInt(); 
         }//end while 
-        if (choice == 4) { 
+        if (inputChoice == 4) { 
             System.out.println("\n the number of item is :" + ItemHashMap.hmCounter); 
             System.out.println(" the number of Stationaryitem is :" + StationaryItem.countS); 
             System.out.println(" the number of LabItem item is :" + LabItem.countL); 
