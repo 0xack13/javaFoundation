@@ -28,4 +28,8 @@ public class ItemHashMap {
     public void addLabItem(LabItem labi) {
         
     }
+    
+    public String displayItemsInHashMap() {
+        return ("NO items are available");
+    }
 }
