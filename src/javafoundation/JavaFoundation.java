@@ -19,4 +19,8 @@ public class JavaFoundation {
         System.out.println("Welcome");
     }
     
+    public String displayItemsInHashMap() {
+        return ("NO items are available");
+    }
+    
 }
