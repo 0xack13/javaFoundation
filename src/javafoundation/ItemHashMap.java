@@ -21,5 +21,11 @@ public class ItemHashMap {
         hm = new HashMap<Integer, Item>();
     }
     
+    public void addStationaryItem (StationaryItem sti) {
+        
+    }
     
+    public void addLabItem(LabItem labi) {
+        
+    }
 }
