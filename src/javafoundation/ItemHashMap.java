@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public class ItemHashMap {
     //Private Hashmap
-    private HashMap<Integer, Item> hm;
+    private HashMap<Integer, Item> hm = new HashMap<Integer, Item>();
     //current number of created "ItemHashMap"
     public static int hmCounter = 0;
     
@@ -22,14 +22,26 @@ public class ItemHashMap {
     }
     
     public void addStationaryItem (StationaryItem sti) {
-        
+        hm.put(hmCounter, sti);
+        hmCounter++;
     }
     
     public void addLabItem(LabItem labi) {
-        
+        hm.put(hmCounter, labi);
+        hmCounter++;
     }
     
     public String displayItemsInHashMap() {
-        return ("NO items are available");
+        String msg = null;
+        if(hm.isEmpty())
+        {
+            msg = "NO items are available";
+        } else {
+            for(Integer i : hm.keySet())
+            {
+                msg += "Key: " + i + " With a value of: " + hm.get(i) + "\n";
+            }
+        }
+        return msg;
     }
 }

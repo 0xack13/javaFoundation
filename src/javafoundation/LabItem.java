@@ -10,24 +10,30 @@ package javafoundation;
  * @author 0xack13
  */
 class LabItem extends Item {
-      private String type; 
+    private String type; 
     public static int countL;
     
- public LabItem(String type1,int countL1){
-    super();
-    this.type= type1;
-    countL++;
+    public LabItem(String type1,int countL1){
+       super();
+       this.type= type1;
+       countL++;  
+   }    
     
-}    
- public LabItem(){
-    this("",0);  
+    //constructor
+    public LabItem(int id, String Name, String type) {
+        this.setId(id);
+        this.setName(Name);
+        this.type = type;
     }
-    public void setType(String type2){
-      this.type=type2;  
+    
+    public LabItem(){
+        this("",0);  
+        }
+        public void setType(String type2){
+          this.type=type2;  
     }
 
    public String getType(){
-
        return type;
    }
    @Override

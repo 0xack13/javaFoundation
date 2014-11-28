@@ -9,15 +9,24 @@ package javafoundation;
  *
  * @author 0xack13
  */
-class StationaryItem {
+class StationaryItem extends Item {
     private double size;
-    private static int countS;
+    public static int countS;
 
     public StationaryItem(double asize,int countS){
       super();
         this.size=asize;
         countS++;
-    }        
+    }   
+    
+    //constructor
+    public StationaryItem(int id, String Name, double size) {
+        this.setId(id);
+        this.setName(Name);
+        this.size = size;
+    }
+    
+    
     public StationaryItem(){   
      this(0.0,0);
     }
