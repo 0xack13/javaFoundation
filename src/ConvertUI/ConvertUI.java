@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 public class ConvertUI implements ActionListener {
   JFrame converterFrame;
   JPanel converterPanel1, converterPanel2, converterPanel3;
-  JTextField tempCelsius;
+  JTextField tempCelsius, tempFahrenheit;
   JLabel celsiusLabel, fahrenheitLabel;
   JButton convertTempC2F, convertTempF2C, convertTempClear;
 
@@ -65,13 +65,10 @@ public class ConvertUI implements ActionListener {
 
   // Create and add the widgets for converter.
   private void addWidgets() {
-    // Create widgets.
-
-    ImageIcon icon = new ImageIcon("images/convert.gif",
-        "Convert temperature");
-    tempCelsius = new JTextField(2);
-    celsiusLabel = new JLabel("Celsius", SwingConstants.LEFT);
+    tempCelsius = new JTextField(30);
+    tempFahrenheit = new JTextField(30);
     
+    celsiusLabel = new JLabel("Celsius", SwingConstants.LEFT);
     fahrenheitLabel = new JLabel("Fahrenheit", SwingConstants.LEFT);
     
     convertTempC2F = new JButton("To Fahrenheit");
@@ -83,16 +80,28 @@ public class ConvertUI implements ActionListener {
 
     // Listen to events from Convert button.
     convertTempC2F.addActionListener(this);
+    convertTempClear.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            tempCelsius.setText("");
+            tempFahrenheit.setText("");
+        }
+    });
 
     // Add widgets to container.
-    converterPanel2.add(tempCelsius, BorderLayout.CENTER);
-    converterPanel2.add(celsiusLabel, BorderLayout.NORTH);
-    //converterPanel2.add(convertTempC2F, BorderLayout.CENTER);
+    converterPanel1.add(celsiusLabel, BorderLayout.CENTER);
+    converterPanel1.add(tempCelsius, BorderLayout.EAST);
+    
+    converterPanel2.add(tempFahrenheit, BorderLayout.EAST);
     converterPanel2.add(fahrenheitLabel, BorderLayout.CENTER);
     
     converterPanel3.add(convertTempF2C, BorderLayout.NORTH);
     converterPanel3.add(convertTempC2F, BorderLayout.CENTER);
     converterPanel3.add(convertTempClear, BorderLayout.SOUTH);
+  }
+  
+  public void clearText() {
+      tempCelsius.setText("");
+      tempFahrenheit.setText("");
   }
 
   // Implementation of ActionListener interface.
