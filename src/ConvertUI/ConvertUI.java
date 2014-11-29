@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 public class ConvertUI implements ActionListener {
   JFrame converterFrame;
 
-  JPanel converterPanel;
+  JPanel converterPanel1, converterPanel2, converterPanel3;
 
   JTextField tempCelsius;
 
@@ -36,15 +36,25 @@ public class ConvertUI implements ActionListener {
   public ConvertUI() {
     // Create the frame and container.
     converterFrame = new JFrame("Convert Celsius to Fahrenheit");
-    converterPanel = new JPanel();
-    converterPanel.setLayout(new GridLayout(2, 2));
+    converterPanel1 = new JPanel();
+    converterPanel1.setLayout(new BorderLayout());
+    
+    converterPanel2 = new JPanel();
+    converterPanel2.setLayout(new BorderLayout());
+    
+    converterPanel3 = new JPanel();
+    converterPanel3.setLayout(new BorderLayout());
 
     // Add the widgets.
     addWidgets();
 
     // Add the panel to the frame.
     converterFrame.getContentPane()
-        .add(converterPanel, BorderLayout.CENTER);
+        .add(converterPanel1, BorderLayout.NORTH);
+    converterFrame.getContentPane()
+        .add(converterPanel2, BorderLayout.CENTER);
+    converterFrame.getContentPane()
+        .add(converterPanel3, BorderLayout.SOUTH);
 
     // Exit when the window is closed.
     converterFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
