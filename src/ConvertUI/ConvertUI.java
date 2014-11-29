@@ -79,11 +79,25 @@ public class ConvertUI implements ActionListener {
     fahrenheitLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
     // Listen to events from Convert button.
-    convertTempC2F.addActionListener(this);
     convertTempClear.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
             tempCelsius.setText("");
             tempFahrenheit.setText("");
+        }
+    });
+    
+    convertTempC2F.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            //(9.0/5.0)*celsius + 32;
+            Double c2f = (9.0/5.0) * ((Double.parseDouble(tempCelsius.getText()))) + 32;
+            tempFahrenheit.setText(c2f.toString());
+        }
+    });
+    
+    convertTempF2C.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            Double f2c = (5.0/9.0)*(((Double.parseDouble(tempFahrenheit.getText()))) - 32);
+            tempCelsius.setText(f2c.toString());
         }
     });
 
